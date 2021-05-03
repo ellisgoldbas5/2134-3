@@ -1,28 +1,17 @@
-{
-  "name": "2134-3",
-  "version": "0.0.2",
-  "description": "learn express js",
-  "main": "index.js",
-  "scripts": {
-    "test": "robots"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ellisgoldbas5/2134-3.git"
-  },
-  "keywords": [
-    "robots",
-    "express"
-  ],
-  "author": "Ellis Goldbas",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ellisgoldbas5/2134-3/issues"
-  },
-  "homepage": "https://github.com/ellisgoldbas5/2134-3#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
-  
-}
+const express = require('express')
+const app = express()
+const port = 1509
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.get('/drive', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log(req.query,req.body);
+  res.send("I'm Driving");
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at https://math.seattleacademy.org:${port}`)
+})
